@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Mondial-IT views_currentpage module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mit_views_currentpage_form_views_ui_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (isset($form['override'])) {
+    if (isset($form['override']['#options']['default'])) {
+      $form['override']['#default_value'] = 'page_published';
+    }
+  }
+}
+
+
+/**
+ * Implements hook_page_attachments().
+ */
+function mit_views_currentpage_page_attachments(array &$attachments)
+{
+  $route = \Drupal::routeMatch()->getRouteName();
+
+//  Drupal::logger('mit_views_currentpage')->info($route);
+  if (\Drupal::routeMatch()->getRouteName() === 'entity.view.edit_display_form') {
+  //  Drupal::logger('mit_views_currentpage ')->info('views_currentpage_page_attachments attached override js');
+    $attachments['#attached']['library'][] = 'mit_views_currentpage/mit_views_currentpage_override';
+  }
+}

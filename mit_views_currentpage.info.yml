@@ -1,0 +1,7 @@
+# bluemarloc.info.yml
+name: mit_views_currentpage
+type: module
+description: 'Force Views override selector to default to Current display.'
+core_version_requirement: ^11
+package: Mondial-IT
+version: 1.0
