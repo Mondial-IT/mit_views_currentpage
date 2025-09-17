@@ -1,7 +1,9 @@
-# bluemarloc.info.yml
-name: mit_views_currentpage
+name: 'Views: Default to Current page'
 type: module
-description: 'Force Views override selector to default to Current display.'
+description: 'Forces the Views “Save” target to default to Current display.'
 core_version_requirement: ^11
 package: Mondial-IT
-version: 1.0
+version: beta
+help: help/topic/mit_views_currentpage.overview
+dependencies:
+  - drupal:help
